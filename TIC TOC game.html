@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+ .all button {
+  background-color:white;
+  border: none;
+  color: black;
+  padding: 15px ;
+  text-align: 100px center;
+  font-size: 16px;
+  margin:  2px;
+  height:50px;
+  width:50px;
+  margin-left: 10px;
+}
+body{
+    background-image:url("image.jpg"); 
+    
+}
+</style>
+<script>
+   var buton=(function(){
+         var count=0;
+         var draw=0;
+         function value(id){
+         if(count==0){
+             if(document.getElementById(id).innerText==""){
+             document.getElementById(id).innerText="x";
+             count="x";
+             draw++;
+             let win=winner(draw);
+             if(win!=1){
+                 document.getElementById("display").innerHTML="<strong style='color:yellow;font-size:50px'>"+win+"wins" ;
+                 count="z";
+             }
+            
+             } 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+         } 
+         else if(count=="x")
+         {
+            if(document.getElementById(id).innerText==""){
+                 document.getElementById(id).innerText="0";
+                 count="0";
+                 draw++;
+                 let win=winner(draw);
+                 if(win!=1){
+                     document.getElementById("display").innerHTML="<strong style='color:yellow;font-size:50px'>"+win+"wins";
+                     count="z";
+                 }
+            }
+        }
+    }
+    return value;
+   })();
+    function winner(draw){
+        var btn1=document.getElementById("btn1").innerText;
+        var btn2=document.getElementById("btn2").innerText;
+        var btn3=document.getElementById("btn3").innerText;
+        var btn4=document.getElementById("btn4").innerText;
+        var btn5=document.getElementById("btn5").innerText;
+        var btn6=document.getElementById("btn6").innerText;
+        var btn7=document.getElementById("btn7").innerText;
+        var btn8=document.getElementById("btn8").innerText;
+        var btn9=document.getElementById("btn9").innerText;
+
+    if(btn1==btn2 && btn1==btn3 && btn1!="")
+      return  btn1;
+    else if(btn4==btn5 && btn4==btn6 && btn4!="")
+        return  btn4;
+        else if(btn7==btn8 && btn7==btn9 && btn7!="")
+        return  btn7;
+       else if(btn1==btn5 && btn1==btn9 && btn1!="")
+       return  btn1;
+      else if(btn3==btn5 && btn3==btn7 && btn3!="")
+       return  btn3;
+      else if(btn1==btn4 && btn1==btn7 && btn1!="")
+       return  btn1;
+   else if(btn3==btn6 && btn3==btn9 && btn3!="")
+        return  btn3;       
+         else if(btn2==btn5 && btn2==btn8 && btn2!="")
+        return btn2;
+        if(draw==9)
+           document.getElementById("display").innerText="MATCH DRAW";
+ return 1;
+    }
+    
+</script>
+<body>
+   <div class="all" style=" border:2px solid black ; "align="center">
+    <fieldset style="height:600px;width:500px;background-color:grey;" align="center">
+        <legend style="font-weight:bold;font-size:30px;padding-top:100px">TIC TAC</legend>
+        <div style="margin-top:50px">
+        <label for="">Player1 </label><input type="text" placeholder="Name"><br><br>
+        <label for="">Player2 </label><input type="text" placeholder="Name">
+        <br><br>
+    <button id="btn1" onclick="buton(this.id)"> </button>
+    <button id="btn2" onclick="buton(this.id)">  </button>   
+    <button id="btn3" onclick="buton(this.id)">  </button> 
+    <br><br>
+    <button id="btn4" onclick="buton(this.id)"></button>   
+    <button id="btn5" onclick="buton(this.id)"></button>   
+    <button id="btn6" onclick="buton(this.id)"></button>
+    <br><br>
+    <button id="btn7" onclick="buton(this.id)"></button>   
+    <button id="btn8" onclick="buton(this.id)"></button>   
+    <button id="btn9" onclick="buton(this.id)"></button>
+    <br><br>
+    <button style="font-size: 16px;height:50px;width:150px;" > <a href="TIC tac game.html" >PLAY AGAIN</button>
+        <p id="display"></p>
+      </div> 
+</fieldset>   
+</div>
+</body>
+</html>
